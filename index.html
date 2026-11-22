@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+    <meta name="google-site-verification" content="HoWofmErOOKMSn8dHeXvBTb5cGoEBEB1rQ7Y3CrUYgY" />
+    <link rel="canonical" href="https://romannumeralhub.github.io/" />
+    <meta property="og:url" content="https://romannumeralhub.github.io/" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<link rel="icon" href="data:," />
+<title>Roman Numeral Converter — RomanNumeralHub</title>
+<meta name="description" content="Free Roman numeral converter: turn numbers into Roman numerals and Roman numerals back into numbers (1–3999), convert dates, browse a full 1–100 chart, and learn how the system works with plain-English guides." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="RomanNumeralHub" />
+<meta property="og:title" content="Roman Numeral Converter — RomanNumeralHub" />
+<meta property="og:description" content="Convert numbers to Roman numerals and back, convert dates, check the 1–100 chart, and read clear guides on how Roman numerals work." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Roman Numeral Converter — RomanNumeralHub" />
+<meta name="twitter:description" content="Free number ↔ Roman numeral converter with date conversion, a full reference chart, and original learning guides." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "RomanNumeralHub",
+      "url": "https://romannumeralhub.github.io/",
+  "alternateName": "Roman Numeral Converter",
+  "description": "Free Roman numeral converter with a date tool, a 1–100 reference chart, and plain-English guides to reading and writing Roman numerals."
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#f3eee5;
+    --bg-deep:#eae1d0;
+    --surface:#fbf8f1;
+    --ink:#2e2119;
+    --ink-soft:#5d4f42;
+    --maroon:#7c2233;
+    --maroon-deep:#5d1624;
+    --maroon-ink:#ffffff;
+    --brass:#a87c2a;
+    --line:#ddd0ba;
+    --line-strong:#c9b894;
+    --good:#2f6b3a;
+    --bad:#a12622;
+    --bad-bg:#f9e9e4;
+    --good-bg:#e9f1e4;
+    --focus:#7c2233;
+    --shadow:0 1px 2px rgba(62,32,20,.08), 0 8px 24px rgba(62,32,20,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#1c1315;
+      --bg-deep:#150d0f;
+      --surface:#271a1d;
+      --ink:#efe4d3;
+      --ink-soft:#c4b096;
+      --maroon:#c0576c;
+      --maroon-deep:#e08a9b;
+      --maroon-ink:#1c1013;
+      --brass:#d3a44e;
+      --line:#453031;
+      --line-strong:#5d4245;
+      --good:#9ccb8e;
+      --bad:#f0a49c;
+      --bad-bg:#3a1e1c;
+      --good-bg:#22331f;
+      --focus:#e08a9b;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:"Lora", Georgia, "Times New Roman", serif;
+    font-size:17px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  button, [role="button"], select, summary, input:not([type="checkbox"],[type="radio"]){ min-height:2.25rem; }
+  a{ color:var(--maroon); text-underline-offset:3px; }
+  a:hover{ color:var(--maroon-deep); }
+  :focus-visible{ outline:3px solid var(--focus); outline-offset:2px; border-radius:2px; }
+
+  .wrap{ max-width:1060px; margin:0 auto; padding:0 20px; }
+
+  /* ---------- header ---------- */
+  header.site{
+    background:var(--maroon-deep);
+    color:#f6ead9;
+    border-bottom:4px solid var(--brass);
+  }
+  @media (prefers-color-scheme: dark){
+    header.site{ background:#2a1218; color:#f3e6d2; }
+  }
+  .site-inner{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; padding:14px 0; }
+  .brand{ font-family:"Marcellus", serif; font-size:1.55rem; letter-spacing:.04em; color:inherit; text-decoration:none; display:flex; align-items:baseline; gap:10px; }
+  .brand .mark{
+    font-family:"Marcellus", serif; font-size:1rem; border:1.5px solid var(--brass);
+    color:var(--brass); padding:2px 8px; letter-spacing:.18em; align-self:center;
+  }
+  .brand small{ font-family:"Lora", serif; font-size:.78rem; letter-spacing:.02em; opacity:.75; }
+  nav.main{ margin-left:auto; }
+  nav.main ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:2px; }
+  nav.main a{
+    color:inherit; text-decoration:none; font-size:.95rem; padding:10px 12px; display:inline-block; min-height:44px;
+  }
+  nav.main a:hover{ text-decoration:underline; text-underline-offset:4px; }
+  nav.main a[aria-current="page"]{ text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--brass); text-decoration-thickness:2px; }
+
+  /* ---------- layout ---------- */
+  main{ padding:34px 0 10px; }
+  .route{ display:none; }
+  .route.active{ display:block; }
+  h1,h2,h3{ font-family:"Marcellus", serif; font-weight:400; line-height:1.2; color:var(--ink); }
+  h1{ font-size:2.15rem; margin:0 0 10px; }
+  h2{ font-size:1.55rem; margin:2.2em 0 .55em; padding-bottom:.3em; border-bottom:1px solid var(--line); }
+  h2:first-child{ margin-top:0; }
+  h3{ font-size:1.18rem; margin:1.6em 0 .4em; }
+  p{ margin:0 0 1em; max-width:72ch; }
+  .lede{ font-size:1.13rem; color:var(--ink-soft); max-width:68ch; }
+  ul.prose, ol.prose{ max-width:72ch; padding-left:1.4em; }
+  ul.prose li, ol.prose li{ margin-bottom:.45em; }
+  .small{ font-size:.88rem; color:var(--ink-soft); }
+  hr.sep{ border:none; border-top:1px solid var(--line); margin:2.4em 0; }
+
+  /* ---------- tools ---------- */
+  .tools{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin:26px 0 8px; }
+  @media (max-width:760px){ .tools{ grid-template-columns:1fr; } }
+  .tool{
+    background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--maroon);
+    padding:22px 22px 18px; box-shadow:var(--shadow);
+  }
+  .tool h2{ border:none; margin:0 0 4px; font-size:1.3rem; padding:0; }
+  .tool .hint{ font-size:.9rem; color:var(--ink-soft); margin-bottom:14px; }
+  label.flabel{ display:block; font-size:.85rem; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:6px; font-family:"Lora",serif; }
+  input[type="text"], input[type="number"], input[type="date"], input[type="email"], textarea{
+    width:100%; font:inherit; font-size:1.15rem; padding:10px 12px;
+    background:var(--bg); color:var(--ink); border:1px solid var(--line-strong); border-radius:3px;
+  }
+  input.roman-in{ font-family:"Marcellus", serif; letter-spacing:.14em; text-transform:uppercase; }
+  textarea{ font-size:1rem; }
+  .btn{
+    font:inherit; font-size:1rem; cursor:pointer; border:1px solid var(--maroon);
+    background:var(--maroon); color:var(--maroon-ink); padding:10px 20px; border-radius:3px; min-height:44px;
+  }
+  .btn:hover{ background:var(--maroon-deep); border-color:var(--maroon-deep); }
+  .btn.ghost{ background:transparent; color:var(--maroon); }
+  .btn.ghost:hover{ background:var(--bg-deep); color:var(--maroon-deep); }
+  .btnrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+  .result{
+    margin-top:16px; padding:14px 16px; border:1px solid var(--line); background:var(--bg);
+    display:none;
+  }
+  .result.show{ display:block; }
+  .result .big{
+    font-family:"Marcellus", serif; font-size:2rem; letter-spacing:.1em; word-break:break-all; line-height:1.25; color:var(--maroon-deep);
+  }
+  @media (prefers-color-scheme: dark){ .result .big{ color:var(--brass); } }
+  .result .big.num{ font-family:"IBM Plex Mono", monospace; letter-spacing:0; }
+  .result .breakdown{ font-size:.95rem; color:var(--ink-soft); margin-top:6px; }
+  .msg{ margin-top:12px; padding:10px 14px; font-size:.95rem; display:none; border-radius:3px; }
+  .msg.show{ display:block; }
+  .msg.err{ background:var(--bad-bg); color:var(--bad); border:1px solid var(--bad); }
+  .msg.ok{ background:var(--good-bg); color:var(--good); border:1px solid var(--good); }
+  .swap-note{ text-align:center; color:var(--ink-soft); font-size:.9rem; margin:2px 0 0; }
+
+  .date-tool{ background:var(--surface); border:1px solid var(--line); border-top:3px solid var(--brass); padding:22px; box-shadow:var(--shadow); margin-top:22px; }
+  .date-tool h2{ border:none; margin:0 0 4px; font-size:1.3rem; padding:0; }
+  .date-grid{ display:grid; grid-template-columns:220px 1fr; gap:18px; align-items:end; }
+  @media (max-width:640px){ .date-grid{ grid-template-columns:1fr; } }
+  .date-out{ display:none; }
+  .date-out.show{ display:block; }
+  .date-parts{ display:flex; gap:26px; flex-wrap:wrap; margin-top:6px; }
+  .date-part .dp-label{ font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); }
+  .date-part .dp-val{ font-family:"Marcellus", serif; font-size:1.5rem; letter-spacing:.08em; color:var(--maroon-deep); }
+  @media (prefers-color-scheme: dark){ .date-part .dp-val{ color:var(--brass); } }
+  .date-full{ font-family:"Marcellus", serif; font-size:1.25rem; letter-spacing:.12em; margin-top:12px; }
+
+  /* ---------- chart ---------- */
+  .chart-controls{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:14px 0; }
+  .chart-controls .btn{ min-height:40px; padding:6px 16px; font-size:.95rem; }
+  .chart-controls .btn[aria-pressed="true"]{ background:var(--maroon-deep); border-color:var(--maroon-deep); color:var(--maroon-ink); }
+  .chart-grid{
+    display:grid; grid-template-columns:repeat(5, 1fr); gap:0;
+    border:1px solid var(--line); background:var(--surface);
+  }
+  @media (max-width:760px){ .chart-grid{ grid-template-columns:repeat(2, 1fr); } }
+  .chart-cell{ padding:7px 12px; border-bottom:1px solid var(--line); display:flex; justify-content:space-between; gap:10px; font-size:.95rem; }
+  .chart-cell .n{ font-family:"IBM Plex Mono", monospace; color:var(--ink-soft); }
+  .chart-cell .r{ font-family:"Marcellus", serif; letter-spacing:.06em; }
+  .chart-cell.key{ background:var(--bg-deep); }
+  .chart-cell.key .r{ color:var(--maroon-deep); font-weight:600; }
+  @media (prefers-color-scheme: dark){ .chart-cell.key .r{ color:var(--brass); } }
+  .keyvals{ columns:3; column-gap:34px; max-width:900px; }
+  @media (max-width:760px){ .keyvals{ columns:2; } }
+  @media (max-width:480px){ .keyvals{ columns:1; } }
+  .keyvals div{ break-inside:avoid; padding:5px 0; border-bottom:1px dotted var(--line); display:flex; justify-content:space-between; gap:14px; }
+  .keyvals .r{ font-family:"Marcellus", serif; letter-spacing:.06em; }
+
+  /* symbols strip — plain prose-friendly list, not cards */
+  .symbols{ display:grid; grid-template-columns:repeat(7,1fr); gap:0; border:1px solid var(--line); background:var(--surface); margin:18px 0; }
+  @media (max-width:760px){ .symbols{ grid-template-columns:repeat(4,1fr); } }
+  @media (max-width:460px){ .symbols{ grid-template-columns:repeat(2,1fr); } }
+  .symbols div{ text-align:center; padding:14px 6px 10px; border-right:1px solid var(--line); }
+  .symbols div:last-child{ border-right:none; }
+  .symbols .sym{ font-family:"Marcellus", serif; font-size:1.9rem; color:var(--maroon-deep); display:block; line-height:1.1; }
+  @media (prefers-color-scheme: dark){ .symbols .sym{ color:var(--brass); } }
+  .symbols .val{ font-family:"IBM Plex Mono", monospace; font-size:.9rem; color:var(--ink-soft); }
+
+  /* guide index — plain list, no cards */
+  .guide-list{ list-style:none; padding:0; margin:10px 0; max-width:76ch; }
+  .guide-list li{ padding:16px 0; border-bottom:1px solid var(--line); }
+  .guide-list li:first-child{ padding-top:4px; }
+  .guide-list a.gtitle{ font-family:"Marcellus", serif; font-size:1.22rem; text-decoration:none; }
+  .guide-list a.gtitle:hover{ text-decoration:underline; }
+  .guide-list p{ margin:4px 0 0; color:var(--ink-soft); font-size:.97rem; }
+  .guide-list .meta{ font-size:.82rem; letter-spacing:.05em; text-transform:uppercase; color:var(--brass); }
+
+  article.guide{ max-width:76ch; }
+  article.guide .byline{ color:var(--ink-soft); font-size:.9rem; margin-bottom:22px; }
+  .crumb{ font-size:.88rem; color:var(--ink-soft); margin-bottom:14px; }
+  .crumb a{ color:var(--ink-soft); }
+  blockquote.pull{
+    margin:1.6em 0; padding:4px 0 4px 20px; border-left:3px solid var(--brass);
+    font-size:1.12rem; font-style:italic; color:var(--ink-soft); max-width:68ch;
+  }
+  table.simple{ border-collapse:collapse; margin:16px 0; font-size:.97rem; }
+  table.simple th, table.simple td{ border:1px solid var(--line); padding:7px 14px; text-align:left; }
+  table.simple th{ background:var(--bg-deep); font-family:"Marcellus", serif; font-weight:400; letter-spacing:.03em; }
+  table.simple td.r, table.simple th.r{ font-family:"Marcellus", serif; letter-spacing:.05em; }
+
+  /* FAQ */
+  details.faq{ border-bottom:1px solid var(--line); padding:6px 0; max-width:76ch; }
+  details.faq summary{ cursor:pointer; font-family:"Marcellus", serif; font-size:1.08rem; padding:10px 0; min-height:44px; }
+  details.faq p{ padding-bottom:12px; }
+
+  /* footer */
+  footer.site{ margin-top:56px; background:var(--bg-deep); border-top:3px solid var(--maroon); padding:34px 0 30px; }
+  .foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:28px; }
+  @media (max-width:760px){ .foot-grid{ grid-template-columns:1fr; } }
+  footer.site h3{ margin:0 0 10px; font-size:1.05rem; }
+  footer.site ul{ list-style:none; margin:0; padding:0; }
+  footer.site li{ margin-bottom:4px; }
+  footer.site a{ color:var(--ink); text-decoration:none; display:inline-block; padding:4px 0; min-height:32px; }
+  footer.site a:hover{ color:var(--maroon); text-decoration:underline; }
+  .foot-note{ margin-top:26px; padding-top:16px; border-top:1px solid var(--line); font-size:.88rem; color:var(--ink-soft); display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap site-inner">
+    <a class="brand" href="#/"><span class="mark">MCM</span> RomanNumeralHub <small>Roman numeral converter &amp; guides</small></a>
+    <nav class="main" aria-label="Main">
+      <ul>
+        <li><a href="#/" data-nav="home">Converter</a></li>
+        <li><a href="#/guides" data-nav="guides">Guides</a></li>
+        <li><a href="#/about" data-nav="about">About</a></li>
+        <li><a href="#/faq" data-nav="faq">FAQ</a></li>
+        <li><a href="#/contact" data-nav="contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ============================ HOME ============================ -->
+<section class="route" id="route-home">
+  <h1>Roman Numeral Converter</h1>
+  <p class="lede">Type any number from 1 to 3999 and see it in Roman numerals — or paste a Roman numeral and get the number back, with a plain-English explanation if the numeral breaks the rules. Everything runs in your browser; nothing you type leaves this page.</p>
+
+  <div class="tools">
+    <div class="tool" id="tool-num2roman">
+      <h2>Number to Roman Numerals</h2>
+      <p class="hint">Enter a whole number between 1 and 3999 — the full range the classical system can write without special notation.</p>
+      <label class="flabel" for="in-number">Number</label>
+      <input type="number" id="in-number" min="1" max="3999" step="1" inputmode="numeric" placeholder="e.g. 1994" />
+      <div class="btnrow">
+        <button class="btn" id="btn-num2roman" type="button">Convert to Roman</button>
+        <button class="btn ghost" id="btn-num-clear" type="button">Clear</button>
+      </div>
+      <div class="msg err" id="msg-num" role="alert"></div>
+      <div class="result" id="res-num" aria-live="polite">
+        <div class="big" id="res-num-val"></div>
+        <div class="breakdown" id="res-num-break"></div>
+        <div class="btnrow">
+          <button class="btn ghost" id="copy-num" type="button">Copy result</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool" id="tool-roman2num">
+      <h2>Roman Numerals to Number</h2>
+      <p class="hint">Enter a Roman numeral such as XIV or MCMXCIV. If it is not written correctly, we will tell you exactly which rule it breaks.</p>
+      <label class="flabel" for="in-roman">Roman numeral</label>
+      <input type="text" class="roman-in" id="in-roman" placeholder="e.g. MCMXCIV" autocomplete="off" autocapitalize="characters" spellcheck="false" />
+      <div class="btnrow">
+        <button class="btn" id="btn-roman2num" type="button">Convert to Number</button>
+        <button class="btn ghost" id="btn-roman-clear" type="button">Clear</button>
+      </div>
+      <div class="msg err" id="msg-roman" role="alert"></div>
+      <div class="result" id="res-roman" aria-live="polite">
+        <div class="big num" id="res-roman-val"></div>
+        <div class="breakdown" id="res-roman-break"></div>
+        <div class="btnrow">
+          <button class="btn ghost" id="copy-roman" type="button">Copy result</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="swap-note">Working with a birthday, wedding date or anniversary instead? Try the <a href="#date-tool">date converter</a> just below.</p>
+
+  <div class="date-tool" id="date-tool">
+    <h2>Date to Roman Numerals</h2>
+    <p class="hint">Pick a date and we will convert the day, the month and the year separately — the format most often used for tattoos, wedding stationery and engraved gifts.</p>
+    <div class="date-grid">
+      <div>
+        <label class="flabel" for="in-date">Date</label>
+        <input type="date" id="in-date" min="0001-01-01" max="3999-12-31" />
+      </div>
+      <div class="btnrow" style="margin-top:0;">
+        <button class="btn" id="btn-date" type="button">Convert date</button>
+        <button class="btn ghost" id="btn-date-today" type="button">Use today</button>
+      </div>
+    </div>
+    <div class="msg err" id="msg-date" role="alert"></div>
+    <div class="date-out" id="res-date" aria-live="polite">
+      <div class="date-parts">
+        <div class="date-part"><span class="dp-label">Day</span><br /><span class="dp-val" id="d-day"></span></div>
+        <div class="date-part"><span class="dp-label">Month</span><br /><span class="dp-val" id="d-month"></span></div>
+        <div class="date-part"><span class="dp-label">Year</span><br /><span class="dp-val" id="d-year"></span></div>
+      </div>
+      <div class="date-full" id="d-full"></div>
+      <div class="btnrow">
+        <button class="btn ghost" id="copy-date" type="button">Copy full date</button>
+      </div>
+    </div>
+  </div>
+
+  <h2>Roman Numerals Chart: 1 to 100</h2>
+  <p>The chart below covers every number from 1 to 100. The multiples of ten and the other landmark values are highlighted, because once you know those anchor points, every number in between is just a small step away from one of them. If you are new to the system, our <a href="#/guide/how-to-read-roman-numerals">complete guide to reading Roman numerals</a> walks through this chart row by row.</p>
+  <div class="chart-controls" role="group" aria-label="Chart range">
+    <button class="btn ghost" type="button" data-range="20" aria-pressed="false">1 – 20</button>
+    <button class="btn ghost" type="button" data-range="50" aria-pressed="false">1 – 50</button>
+    <button class="btn ghost" type="button" data-range="100" aria-pressed="true">1 – 100</button>
+  </div>
+  <div class="chart-grid" id="chart-grid" aria-label="Roman numerals 1 to 100"></div>
+
+  <h3>Key values worth memorising</h3>
+  <p>Above 100, a handful of round numbers do most of the work. Learn these and you can build — or decode — almost any numeral you will meet on a building, a book or a film credit.</p>
+  <div class="keyvals" id="keyvals"></div>
+
+  <h2>The Seven Symbols</h2>
+  <p>The whole Roman system is built from just seven letters. Each one stands for a fixed value, and every numeral ever written — from a child's homework to the inscription on a two-thousand-year-old aqueduct — is some arrangement of these seven:</p>
+  <div class="symbols" aria-label="The seven Roman numeral symbols">
+    <div><span class="sym">I</span><span class="val">1</span></div>
+    <div><span class="sym">V</span><span class="val">5</span></div>
+    <div><span class="sym">X</span><span class="val">10</span></div>
+    <div><span class="sym">L</span><span class="val">50</span></div>
+    <div><span class="sym">C</span><span class="val">100</span></div>
+    <div><span class="sym">D</span><span class="val">500</span></div>
+    <div><span class="sym">M</span><span class="val">1000</span></div>
+  </div>
+  <p>The pattern is easy to spot once someone points it out: the system alternates between powers of ten (I, X, C, M — 1, 10, 100, 1000) and their halves (V, L, D — 5, 50, 500). That rhythm is why the symbols feel so regular, and it is also why the system stops where it does. There is no classical symbol beyond M, so the largest number the standard rules can express is 3999 — MMMCMXCIX. Medieval scribes later invented an overline, called a vinculum, to multiply a numeral by a thousand, but that is an extension rather than part of the everyday system, and it is why our converter, like most references, works in the 1 to 3999 range.</p>
+  <p>Where did the letters come from? The honest answer is that nobody knows for certain, and historians still debate it. One long-standing theory holds that the earliest symbols grew out of tally marks — simple strokes cut into wood — which would explain I as a single notch. V may have begun as a hand with fingers spread, or as two strokes joined at the bottom; X as two hands, or two tallies crossed. C and M have the tidiest stories: C is the first letter of <em>centum</em>, the Latin word for a hundred, and M begins <em>mille</em>, a thousand. What matters for reading them today is not the archaeology but the values above — commit those seven to memory and you hold the entire system in your head.</p>
+
+  <h2>Addition and Subtraction: The Two Rules That Run Everything</h2>
+  <p>Roman numerals are read by scanning left to right and keeping a running total, and two simple rules decide what each symbol does. The first is the <strong>addition rule</strong>: when a symbol is followed by one of equal or smaller value, you add it. VI is 5 + 1 = 6. XXVII is 10 + 10 + 5 + 1 + 1 = 27. Most numerals are nothing more than a tidy sum written in descending order, biggest symbol first.</p>
+  <p>The second is the <strong>subtraction rule</strong>: when a smaller symbol sits immediately before a larger one, you subtract the smaller from the larger instead of adding it. IV is not 1 + 5 but 5 − 1 = 4. IX is 10 − 1 = 9. This single trick is what keeps numerals short — without it, 9 would need nine strokes (VIIII, which the Romans themselves sometimes wrote in informal settings), and 49 would be a clumsy XLVIIII instead of the compact XLIX. Only three symbols are allowed to subtract, and each may only stand before the next two values above it: I before V and X, X before L and C, and C before D and M. That is why 99 is XCIX and never IC — I is simply not permitted to jump all the way to C.</p>
+  <p>A third, quieter rule ties the other two together: no symbol repeats more than three times in a row. Four hundreds are CD, never CCCC; forty is XL, never XXXX. When our <a href="#tool-roman2num">Roman-to-number converter</a> rejects a numeral, it is almost always one of these three rules that has been broken, and it will name the rule for you. For a slower, example-packed walkthrough, read our full breakdown of the <a href="#/guide/roman-numeral-rules">Roman numeral rules of addition and subtraction</a>.</p>
+
+  <h2>Where Roman Numerals Are Still Used Today</h2>
+  <p>It would be reasonable to assume Roman numerals died with the empire that invented them. In fact they never left — they simply retreated into the corners of life where tradition, ceremony and a certain visual gravity matter more than speed of calculation. You have almost certainly read several this week without noticing.</p>
+  <h3>Clock and watch faces</h3>
+  <p>Traditional clock faces are the numerals' most visible home, from the tower of Big Ben to the watch on your wrist. Look closely at almost any of them and you will spot a famous quirk: the 4 is written IIII instead of IV. Clockmakers have done this for centuries, and the reasons — visual balance against the VIII opposite it, older casting habits, a legend involving a king of France — are interesting enough that we devoted a whole article to <a href="#/guide/why-clocks-use-iiii">why clocks use IIII instead of IV</a>.</p>
+  <h3>The Super Bowl and other grand events</h3>
+  <p>The NFL has numbered every Super Bowl with Roman numerals since Super Bowl V in 1971, lending an annual football game the air of a historic epic — Super Bowl LX, LXI and so on. The one exception proves the rule's branding power: for Super Bowl 50 in 2016 the league briefly switched to a plain "50", partly because a lone L looked awkward in the logo, then returned to numerals the following year. The Olympic Games, the World Cup final's official numbering in some contexts, and WrestleMania all reach for the same classical weight.</p>
+  <h3>Books, films and documents</h3>
+  <p>Open a hardback novel and the front matter — preface, introduction, contents — is usually paginated in small Roman numerals (i, ii, iii…) so the Arabic page 1 can begin with the story itself. Chapters of reference works, acts and scenes in plays, appendices, and the outlines in legal documents all use the system. Film and television credits traditionally give the copyright year in Roman numerals, a habit started partly to make a production's age less obvious at a glance; the closing credits of older films, and the BBC's programmes for decades, are full of dates like MCMLXXXVII. If you need to decode one, drop it into the <a href="#tool-roman2num">converter above</a> — or learn the pattern behind years in our guide to <a href="#/guide/roman-numerals-for-years">Roman numerals for years</a>.</p>
+  <h3>Names, monuments and milestones</h3>
+  <p>Monarchs and popes are distinguished by Roman numerals — Charles III, Elizabeth II, Pope Benedict XVI — and the same convention names generations in families (John Smith IV), horses, yachts and product lines. Cornerstones and monuments carry dedication years in numerals because carved stone and formal lettering suit them. And in everyday life the commonest modern use of all may be the tattoo: birth dates, wedding dates and anniversaries rendered in numerals, which is exactly what our <a href="#date-tool">date converter</a> is built for.</p>
+
+  <h2>Learn With Our Guides</h2>
+  <p>Every guide on RomanNumeralHub is written from scratch in plain English, with worked examples you can check against the converter as you read.</p>
+  <ul class="guide-list">
+    <li>
+      <span class="meta">Start here · Reading</span><br />
+      <a class="gtitle" href="#/guide/how-to-read-roman-numerals">How to Read Roman Numerals: The Complete Guide</a>
+      <p>A step-by-step method for decoding any numeral: chunk it, anchor on the big symbols, and handle the subtractive pairs without getting lost.</p>
+    </li>
+    <li>
+      <span class="meta">Rules · Reference</span><br />
+      <a class="gtitle" href="#/guide/roman-numeral-rules">Roman Numeral Rules: Addition and Subtraction Explained</a>
+      <p>Every rule of the system laid out with examples — repetition limits, the six legal subtraction pairs, and the mistakes people make most often.</p>
+    </li>
+    <li>
+      <span class="meta">Curiosity · History</span><br />
+      <a class="gtitle" href="#/guide/why-clocks-use-iiii">Why Do Clocks Use IIII Instead of IV?</a>
+      <p>The balance argument, the mould-maker's shortcut, the royal legend — and what historians actually think is going on.</p>
+    </li>
+    <li>
+      <span class="meta">Years · Tattoos &amp; anniversaries</span><br />
+      <a class="gtitle" href="#/guide/roman-numerals-for-years">Roman Numerals for Years: Tattoo and Anniversary Guide</a>
+      <p>How to convert any year from 1900 to today, format a date correctly, and double-check a design before it becomes permanent.</p>
+    </li>
+    <li>
+      <span class="meta">For parents &amp; teachers · Kids</span><br />
+      <a class="gtitle" href="#/guide/teach-roman-numerals-to-kids">How to Teach Roman Numerals to Kids</a>
+      <p>A gentle teaching sequence with games, clock-face hunts and practice ideas that turn seven letters into a puzzle children enjoy.</p>
+    </li>
+  </ul>
+  <p>Questions the guides do not cover? The <a href="#/faq">FAQ page</a> answers the ones we hear most, and you can always <a href="#/contact">get in touch</a>. To learn who runs this site and why, visit the <a href="#/about">About page</a>.</p>
+</section>
+
+<!-- ============================ GUIDES INDEX ============================ -->
+<section class="route" id="route-guides">
+  <p class="crumb"><a href="#/">Home</a> › Guides</p>
+  <h1>Roman Numeral Guides</h1>
+  <p class="lede">Five long, plain-English guides, all written specifically for RomanNumeralHub. Read them in order for a full course, or dip into whichever question brought you here.</p>
+  <ul class="guide-list">
+    <li>
+      <span class="meta">Start here · Reading</span><br />
+      <a class="gtitle" href="#/guide/how-to-read-roman-numerals">How to Read Roman Numerals: The Complete Guide</a>
+      <p>The full method: the seven symbols, the place-value shortcut, subtractive pairs, and worked examples from II all the way to MMMCMXCIX. Includes a self-test with answers.</p>
+    </li>
+    <li>
+      <span class="meta">Rules · Reference</span><br />
+      <a class="gtitle" href="#/guide/roman-numeral-rules">Roman Numeral Rules: Addition and Subtraction Explained</a>
+      <p>All the rules in one place, each with right and wrong examples — repetition, ordering, the six subtraction pairs, and why IL, VX and IIII (outside clocks) are errors.</p>
+    </li>
+    <li>
+      <span class="meta">Curiosity · History</span><br />
+      <a class="gtitle" href="#/guide/why-clocks-use-iiii">Why Do Clocks Use IIII Instead of IV?</a>
+      <p>Centuries of clockmakers have written 4 as IIII. We weigh the balance theory, the casting-mould theory, the story of Charles V, and what the evidence supports.</p>
+    </li>
+    <li>
+      <span class="meta">Years · Tattoos &amp; anniversaries</span><br />
+      <a class="gtitle" href="#/guide/roman-numerals-for-years">Roman Numerals for Years: Tattoo and Anniversary Guide</a>
+      <p>Year conversions from 1950 to 2026, date formats that read well on skin and paper, spacing and divider choices, and a checking routine before anything permanent.</p>
+    </li>
+    <li>
+      <span class="meta">For parents &amp; teachers · Kids</span><br />
+      <a class="gtitle" href="#/guide/teach-roman-numerals-to-kids">How to Teach Roman Numerals to Kids</a>
+      <p>A five-lesson sequence, games that work at the kitchen table or in class, common stumbling blocks, and how to use clocks, books and buildings as teaching tools.</p>
+    </li>
+  </ul>
+  <p>Prefer to practise while you read? Keep the <a href="#/">converter</a> open in another tab and test every example yourself.</p>
+</section>
+
+<!-- ============================ GUIDE 1 ============================ -->
+<section class="route" id="route-guide-read">
+  <p class="crumb"><a href="#/">Home</a> › <a href="#/guides">Guides</a> › How to Read Roman Numerals</p>
+  <article class="guide">
+    <h1>How to Read Roman Numerals: The Complete Guide</h1>
+    <p class="byline">A complete, example-first method for reading any Roman numeral from 1 to 3999 — no maths degree required.</p>
+
+    <p>Roman numerals frighten people out of all proportion to their actual difficulty. The whole system rests on seven symbols and two ideas — adding and subtracting — yet a long numeral like MCMXCIV can look like a locked door. This guide unlocks it methodically. By the end you will be able to read the year on a film credit, the chapter numbers in a novel and the face of a station clock without reaching for your phone. And whenever you want to check your work, the <a href="#/">converter on our home page</a> will confirm your answer instantly.</p>
+
+    <h2>Step One: Learn the Seven Symbols Cold</h2>
+    <p>Everything begins with seven values: I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000. Do not skim past this list — every reading skill that follows is just these seven numbers wearing different arrangements. Notice the rhythm: 1, 10, 100 and 1000 are powers of ten, and 5, 50 and 500 sit exactly halfway between them. That alternating pattern is your first memory hook. If you can recite "I V X L C D M" as "one, five, ten, fifty, hundred, five hundred, thousand," you already know more Roman numerals than most adults.</p>
+    <p>A useful picture: imagine the symbols as coins. M is a thousand-pound note, D a five-hundred, C a hundred, and so on down to the single I. Reading a numeral is like counting a handful of change — you mostly add up what's in your hand, with one twist we will meet in step three.</p>
+
+    <h2>Step Two: Read Left to Right and Add</h2>
+    <p>When symbols are arranged from largest to smallest, reading is pure addition. Take XXVII. Work through it one symbol at a time, keeping a running total: X makes 10, another X makes 20, V makes 25, I makes 26, the last I makes 27. Now try a bigger one, DCCCXII: D is 500, then C C C add 300 to reach 800, X brings 810, and I I finish at 812. Nothing about that required talent — just patience and a running total.</p>
+    <p>The running-total method never fails, but it is slow for long numerals. So here is the shortcut professionals use: <strong>read by place value</strong>. Roman numerals are secretly organised the same way our ordinary numbers are — thousands first, then hundreds, then tens, then ones. In MCMXCIV the chunks are M (one thousand), CM (nine hundred), XC (ninety) and IV (four): 1994. Once you learn to see the boundaries between chunks — a new chunk starts whenever the values drop back down after a rise — even the longest numeral breaks into four small, friendly pieces. Practise chunking on MDCCCLXXXVIII (1000 + 800 + 80 + 8 = 1888), the longest numeral in the standard range, and you will find it almost relaxing.</p>
+
+    <h2>Step Three: Spot the Subtractive Pairs</h2>
+    <p>The one twist: sometimes a smaller symbol stands <em>before</em> a bigger one, and then you subtract instead of add. There are only six such pairs in the entire system, and they are worth memorising as a set: IV = 4, IX = 9, XL = 40, XC = 90, CD = 400, CM = 900. Notice that every one of them produces a number ending in 4 or 9 — that is their whole purpose. They exist so that 4 is not IIII and 9 is not VIIII.</p>
+    <p>When you meet a numeral, scan it for these six pairs before you start adding. In XLIX, your eye should catch XL (40) and IX (9) immediately, giving 49 without any running total at all. In CDXLIV you can pick out all three kinds at once: CD = 400, XL = 40, IV = 4, total 444. The full logic of which pairs are allowed — and why combinations like IC for 99 are wrong — is covered in our companion article on the <a href="#/guide/roman-numeral-rules">rules of addition and subtraction</a>.</p>
+    <blockquote class="pull">Read in chunks, not letters: thousands, then hundreds, then tens, then ones. A numeral is four small numbers wearing one long coat.</blockquote>
+
+    <h2>Step Four: Work Through Real Examples</h2>
+    <p>Let us read five numerals the way you will meet them in the wild.</p>
+    <p><strong>XIV</strong> — a chapter number. X is 10; then IV is a subtractive pair worth 4. Total: 14.</p>
+    <p><strong>LXVI</strong> — L is 50, X adds 10 (60), V adds 5 (65), I adds 1: 66.</p>
+    <p><strong>MCMLXXXIV</strong> — a film year. Chunk it: M = 1000, CM = 900, LXXX = 80, IV = 4. Total: 1984 — the year of <em>Ghostbusters</em> and <em>The Terminator</em>, as it happens.</p>
+    <p><strong>MMXXVI</strong> — MM is 2000, XX is 20, VI is 6: 2026, the current year as this guide is published.</p>
+    <p><strong>MMMCMXCIX</strong> — the maximum. MMM = 3000, CM = 900, XC = 90, IX = 9: 3999. If you can read that, you can read anything the classical system can write.</p>
+
+    <h2>Writing Numerals: The Reverse Journey</h2>
+    <p>Reading and writing are the same skill facing opposite directions. To write a number, break it into place values and translate each chunk separately. For 2749: 2000 is MM, 700 is DCC, 40 is XL, 9 is IX — MMDCCXLIX. For 945: 900 is CM, 40 is XL, 5 is V — CMXLV. The only chunks that ever surprise beginners are the 4s and 9s, which always use subtraction: 4 = IV, 40 = XL, 400 = CD, 9 = IX, 90 = XC, 900 = CM. Everything else is honest addition of the biggest symbols that fit.</p>
+    <p>Our <a href="#/">number-to-Roman converter</a> shows this breakdown under every result, so you can compare its chunking with your own until the two agree every time.</p>
+
+    <h2>The Mistakes Everyone Makes at First</h2>
+    <p><strong>Reading every letter at face value.</strong> Beginners add IV as 1 + 5 = 6. The fix: always check whether a smaller symbol stands before a bigger one before adding it.</p>
+    <p><strong>Forgetting that pairs count once.</strong> In XIX, the IX is a single unit worth 9, so the total is 19 — not 10 + 1 + 10.</p>
+    <p><strong>Losing count in long runs.</strong> In VIII or LXXXIII, group repeated symbols visually: LXXX is "fifty and thirty," not eight separate decisions.</p>
+    <p><strong>Expecting a zero.</strong> There is none. The Roman system has no symbol for zero and no way to write "nothing" — one of the reasons it eventually lost out to the Hindu-Arabic system for serious calculation, as our <a href="#/about">About page</a> explains.</p>
+
+    <h2>A Quick Self-Test</h2>
+    <p>Read these five, then check yourself with the converter: (1) XLII, (2) XCIX, (3) CDXXV, (4) MMCDXLIV, (5) DCCCXC. The answers are 42, 99, 425, 2444 and 890. If you got at least four, you can officially read Roman numerals. If any tripped you up, look at which chunk went wrong — it will almost certainly be a subtractive pair, and ten minutes with the <a href="#/guide/roman-numeral-rules">rules guide</a> will fix it permanently.</p>
+    <p>From here, the natural next steps are the curiosities: why your clock probably shows IIII for 4 (see <a href="#/guide/why-clocks-use-iiii">Why Do Clocks Use IIII Instead of IV?</a>), and how to turn years and dates into numerals for tattoos and anniversaries (see <a href="#/guide/roman-numerals-for-years">Roman Numerals for Years</a>). Happy reading — literally.</p>
+  </article>
+</section>
+
+<!-- ============================ GUIDE 2 ============================ -->
+<section class="route" id="route-guide-rules">
+  <p class="crumb"><a href="#/">Home</a> › <a href="#/guides">Guides</a> › Roman Numeral Rules</p>
+  <article class="guide">
+    <h1>Roman Numeral Rules: Addition and Subtraction Explained</h1>
+    <p class="byline">Every rule of the classical system, stated plainly and shown with correct and incorrect examples.</p>
+
+    <p>Roman numerals look lawless to beginners — a jumble of letters that somehow means 1994. In reality the system is tightly rule-bound: there are really only five rules, and once you know them you can not only read any numeral but also say with confidence whether a numeral you have been given is written correctly. That second skill matters more than you might think. It is what stands between a tattoo studio's flash sheet and a permanent mistake, and it is exactly what our <a href="#tool-roman2num">Roman-to-number converter</a> checks when it validates your input. Here are the rules.</p>
+
+    <h2>Rule 1: Symbols Have Fixed Values and Are Written Largest First</h2>
+    <p>The seven symbols never change their values: I = 1, V = 5, X = 10, L = 50, C = 100, D = 500, M = 1000. In a correctly written numeral they appear in descending order of value, left to right, with one exception — the subtractive pairs covered by Rule 4. So 238 is CCXXXVIII: hundreds first, then tens, then ones. Writing VIII X (putting the smaller group first) is not an alternative style; it is simply wrong, because the reader's eye expects the descending staircase. This ordering rule is what makes the place-value reading method in our <a href="#/guide/how-to-read-roman-numerals">complete reading guide</a> possible.</p>
+
+    <h2>Rule 2: The Addition Rule</h2>
+    <p>When a symbol is followed by a symbol of equal or smaller value, its value is added to the total. This is the engine of the whole system:</p>
+    <ul class="prose">
+      <li>III = 1 + 1 + 1 = 3</li>
+      <li>LV = 50 + 5 = 55</li>
+      <li>MDC = 1000 + 500 + 100 = 1600</li>
+      <li>MMXXV = 1000 + 1000 + 10 + 10 + 5 = 2025</li>
+    </ul>
+    <p>Most numerals you will ever meet are pure addition. The subtraction rule exists only to handle the awkward numbers — the 4s and 9s — where pure addition would need four repetitions in a row, which Rule 3 forbids.</p>
+
+    <h2>Rule 3: No Symbol Repeats More Than Three Times</h2>
+    <p>I, X, C and M may repeat, but never more than three times consecutively. Three is fine: III (3), XXX (30), CCC (300), MMM (3000). Four is not: 4 is never IIII in standard notation, 40 is never XXXX, 400 is never CCCC. (The one famous exception — clock faces — has its own story, told in <a href="#/guide/why-clocks-use-iiii">Why Do Clocks Use IIII Instead of IV?</a>)</p>
+    <p>The "five" symbols V, L and D are stricter still: they never repeat at all. There is no VV for 10, no LL for 100 and no DD for 1000, because X, C and M already exist for exactly those values. A repeated V, L or D is one of the most reliable signs that a numeral has been written by someone guessing.</p>
+
+    <h2>Rule 4: The Subtraction Rule — Six Pairs Only</h2>
+    <p>When a smaller symbol is placed immediately before a larger one, the smaller is subtracted from the larger. But the system permits exactly six such pairs, and understanding <em>why</em> those six makes them impossible to forget. Only the powers of ten — I, X and C — may be used subtractively; V, L and D never subtract. And each subtracting symbol may only stand before the two values directly above it in the sequence:</p>
+    <table class="simple">
+      <tr><th>Pair</th><th>Working</th><th>Value</th></tr>
+      <tr><td class="r">IV</td><td>5 − 1</td><td>4</td></tr>
+      <tr><td class="r">IX</td><td>10 − 1</td><td>9</td></tr>
+      <tr><td class="r">XL</td><td>50 − 10</td><td>40</td></tr>
+      <tr><td class="r">XC</td><td>100 − 10</td><td>90</td></tr>
+      <tr><td class="r">CD</td><td>500 − 100</td><td>400</td></tr>
+      <tr><td class="r">CM</td><td>1000 − 100</td><td>900</td></tr>
+    </table>
+    <p>Think of it as a reach limit. I is a small symbol; it can reach up one step to V or two steps to X, but it cannot stretch all the way to L, C, D or M. So 49 is XLIX (40 + 9), never IL; 99 is XCIX (90 + 9), never IC; 499 is CDXCIX, never ID. Likewise X can reach L and C but not D or M, so 950 is CML, never XM. And because V, L and D never subtract, forms like VX (for 5), LC (for 50) or DM (for 500) are always errors — the correct forms are V, L and D themselves, since subtraction is pointless when a single symbol already says it.</p>
+    <p>Two smaller clauses complete the rule. First, only one symbol may subtract at a time: 8 is VIII, never IIX, and 19 is XIX, never IXX. Second, a subtractive pair is a sealed unit — after CM, for instance, only symbols smaller than the subtracted C may follow, which is why 990 is CMXC and a form like CMCX would be nonsense.</p>
+
+    <h2>Rule 5: One Number, One Correct Spelling</h2>
+    <p>Put the four rules together and a satisfying fact emerges: every number from 1 to 3999 has exactly <em>one</em> correct Roman spelling. 764 is DCCLXIV — not DCCLXIIII, not CD-invented shortcuts, not any other arrangement. This uniqueness is why validation is possible at all. When you type a numeral into our <a href="#tool-roman2num">converter</a> and it objects, it is not being pedantic; it has compared your spelling against the single correct one the rules produce, and it will tell you which rule your version breaks.</p>
+
+    <h2>The Common Errors, Named and Corrected</h2>
+    <p><strong>IIII for 4</strong> — breaks Rule 3 (outside clock faces, where tradition overrules the rulebook). Correct: IV.</p>
+    <p><strong>VV for 10</strong> — breaks Rule 3's ban on repeating V, L and D. Correct: X.</p>
+    <p><strong>IL for 49, IC for 99, ID or IM</strong> — break Rule 4's reach limit. Correct: XLIX, XCIX, CDXCIX, CMXCIX.</p>
+    <p><strong>VX, LC, DM</strong> — break Rule 4's ban on subtracting with V, L or D. Correct: V, L, D (or the intended additive form).</p>
+    <p><strong>IIX for 8, XXC for 80</strong> — break the one-symbol subtraction clause. Correct: VIII, LXXX.</p>
+    <p><strong>XXXX, CCCC, MMMM</strong> — break Rule 3. Correct: XL, CD, and — for 4000 — nothing at all: the classical system ends at 3999, and larger values need the medieval vinculum (an overlined numeral), a topic our <a href="#/faq">FAQ</a> touches on.</p>
+
+    <h2>A Sixty-Second Rule Check for Any Numeral</h2>
+    <p>When a numeral matters — a date about to be engraved, a year on a book cover — run it through these questions. Does it use only the seven symbols? Does any symbol repeat four times, or V/L/D twice? Does every smaller-before-larger pair match one of the six legal pairs? Do the values descend overall, in thousands-hundreds-tens-ones order? Four yeses and the numeral is sound. Or save the minute: paste it into the <a href="#/">converter</a>, which applies precisely these checks and explains any failure in words rather than just refusing.</p>
+    <p>With the rules in hand, the rest of our library opens up: apply them to <a href="#/guide/roman-numerals-for-years">years and tattoo dates</a>, teach them to a child using the sequence in <a href="#/guide/teach-roman-numerals-to-kids">How to Teach Roman Numerals to Kids</a>, or simply enjoy knowing why the clock on the wall appears to break them.</p>
+  </article>
+</section>
+
+<!-- ============================ GUIDE 3 ============================ -->
+<section class="route" id="route-guide-clocks">
+  <p class="crumb"><a href="#/">Home</a> › <a href="#/guides">Guides</a> › Why Clocks Use IIII</p>
+  <article class="guide">
+    <h1>Why Do Clocks Use IIII Instead of IV?</h1>
+    <p class="byline">One of the oldest design quirks in everyday life, hiding in plain sight on millions of clock faces.</p>
+
+    <p>Next time you pass a traditional clock — a church tower, a station clock, a grandfather clock in a hallway — look at the number at the four o'clock position. On the great majority of analogue clocks and watches with Roman numerals, it does not say IV. It says IIII: four single strokes. This is not a mistake, and it is not modern laziness. Clockmakers have written the 4 this way for well over six hundred years, through the entire history of mechanical timekeeping, even though the subtractive IV had been standard in writing for centuries before the first clock was built. Why?</p>
+    <p>The honest answer is that no single document survives in which a clockmaker explains the choice, so historians work from evidence and plausibility. Several explanations circulate — some almost certainly true as contributing factors, some charming but shaky. It is worth taking them one at a time, because together they show how a practical workshop habit can harden into a tradition nobody dares break.</p>
+
+    <h2>First, the Facts on the Ground</h2>
+    <p>The IIII convention appears on some of the earliest surviving tower clocks of the late fourteenth century and has been the dominant practice ever since. It is not universal: Big Ben in London uses IV, and a minority of watch brands use IV too, sometimes precisely to stand out. But walk into any clock shop and count: IIII wins overwhelmingly. Just as telling, the 9 on those same faces is always IX, never VIIII. Whatever explains IIII must also explain why the clockmakers happily used subtraction on the other side of the dial — a clue that rules out the simplest theory, that they just didn't know the subtractive form. They clearly did.</p>
+    <p>It is also worth knowing that IIII is older than the clocks. In classical and medieval manuscripts, additive forms like IIII and VIIII appear regularly alongside subtractive ones; the strict rule that 4 must be IV hardened later, in print. The clockmakers of the 1300s were not breaking a rule — the rulebook was still being written. Our own <a href="#/guide/roman-numeral-rules">rules guide</a> describes the modern standard, but history was always messier than the standard.</p>
+
+    <h2>The Balance Theory: The Strongest Candidate</h2>
+    <p>Look at a Roman-numeral clock face as a picture rather than a list of numbers. On the right side, the eight o'clock position carries VIII — the visually heaviest numeral on the dial, a wide V followed by three strokes. Directly opposite it, at four o'clock, sits the 4. If that 4 were written IV, it would be the lightest numeral on the face: two narrow characters, one of them a single stroke. Written IIII, it becomes four strokes — a block of marks that mirrors VIII's visual weight across the dial. Clock dials were designed objects, often the most prominent public artwork in a town, and symmetry across the horizontal axis mattered to the people who painted them.</p>
+    <p>The balance theory gains support from a second pattern. With IIII in place, the dial divides into three perfect groups of four: the first four hours (I, II, III, IIII) use only the letter I; the next four (V, VI, VII, VIII) begin with V; the last four (IX, X, XI, XII) begin with X. The face becomes a tidy visual rhythm — I-group, V-group, X-group — that a designer can lay out almost musically. With IV, that pattern breaks in the very first group. Designers notice such things, and once a pleasing pattern exists, it tends to be copied.</p>
+
+    <h2>The Mould Theory: A Workshop Shortcut</h2>
+    <p>The second explanation is purely practical. On many early clocks the numerals were not painted but cast in metal, or cut from sheet, and a founder making a full set of dial numerals from a mould had an incentive to simplify his stock of letters. Count the characters needed for a IIII dial: twenty I's, four V's and four X's. A tidy shopping list, easily produced from a small set of moulds — four identical castings of a group of five strokes can supply all the I's. Using IV instead saves nothing and breaks the neat arithmetic, because IV needs one I and one V in a combination that disrupts the pattern of fours and fives the founder was casting. Whether or not this is how the habit began, it is a very plausible reason it <em>persisted</em> in workshops for centuries: it made production simpler, and apprentices learned the pattern they were taught.</p>
+
+    <h2>The Royal Legend: Charles V of France</h2>
+    <p>The most repeated story is also the least reliable. As the tale goes, King Charles V of France (who reigned in the late 1300s) saw a clockmaker's dial bearing IV, objected that the king's own numeral — the V in Charles V — should never be diminished by a subtraction, and ordered the 4 written IIII; the cowed clockmaker obeyed, and the trade followed. It is a wonderful story and almost certainly not true. IIII appears on dials outside French influence, the anecdote surfaces in print long after the supposed event, and no contemporary record supports it. File it where it belongs: folklore that survives because it is fun to tell, not because it happened.</p>
+
+    <h2>The Readability Argument</h2>
+    <p>A more modest claim: on a tower clock read from below, at a distance, at an angle, IV and VI can be confused — especially since the numerals at the bottom of a dial are often rotated or even upside down relative to the viewer. IIII cannot be mistaken for anything else. The same argument is made about avoiding confusion between IV and the VI opposite it on a dial where the lower numerals are inverted. This may well have reinforced the habit once it existed; as an origin story it is speculative, but as a reason modern makers keep IIII, it is genuinely practical. Legibility at a glance is the entire job of a public clock.</p>
+
+    <h2>So Why Do Makers Still Do It Today?</h2>
+    <p>Strip away the theories and the modern answer is simple: tradition is the product. A clock or watch with Roman numerals is bought precisely because it feels classical, and IIII is part of what "classical" looks like on a dial — most buyers would find IV faintly wrong without knowing why. Luxury watchmakers who use IIII are not unaware of the rule; they are honouring the older convention deliberately. The handful who use IV are making the opposite statement with equal deliberateness.</p>
+    <blockquote class="pull">IIII on a clock is not an error. It is a six-hundred-year-old design decision that outlived every theory invented to explain it.</blockquote>
+    <p>For everything off the clock face — books, dates, documents, tattoos — the standard rules apply and 4 is IV. If you are checking a numeral for one of those purposes, our <a href="#tool-roman2num">converter</a> follows the standard rules and will flag IIII with an explanation, while the <a href="#/guide/how-to-read-roman-numerals">complete reading guide</a> shows how both forms are read. And now you know: when your eye catches IIII at four o'clock, you are not looking at a mistake. You are looking at one of the longest-running habits in the history of design.</p>
+  </article>
+</section>
+
+<!-- ============================ GUIDE 4 ============================ -->
+<section class="route" id="route-guide-years">
+  <p class="crumb"><a href="#/">Home</a> › <a href="#/guides">Guides</a> › Roman Numerals for Years</p>
+  <article class="guide">
+    <h1>Roman Numerals for Years: Tattoo and Anniversary Guide</h1>
+    <p class="byline">How to convert any year, format a date beautifully, and check it three ways before it goes anywhere permanent.</p>
+
+    <p>Of all the modern uses of Roman numerals, years are the most personal. A birth year on a forearm, a wedding date along a collarbone, a parent's years framing a memorial piece — numerals turn a date into something that looks carved rather than typed, private rather than obvious. The same quality makes them popular on anniversary cards, wedding stationery, engraved jewellery and the cornerstones of houses. This guide covers everything you need: how years convert, which date formats read best, and how to verify your design before it becomes permanent. For instant conversions, our <a href="#date-tool">date converter</a> does day, month and year in one step.</p>
+
+    <h2>How a Year Converts</h2>
+    <p>A year is just a number, so it converts by the usual place-value method from our <a href="#/guide/how-to-read-roman-numerals">reading guide</a>: thousands, then hundreds, then tens, then ones. Take 1994: 1000 = M, 900 = CM, 90 = XC, 4 = IV, giving MCMXCIV. Notice that most modern years begin MCM (1900s) or MM (2000s), which is why so many tattoo dates share that opening rhythm. A few reference points worth knowing by sight:</p>
+    <table class="simple">
+      <tr><th>Year</th><th>Roman</th><th>Year</th><th>Roman</th></tr>
+      <tr><td>1950</td><td class="r">MCML</td><td>2000</td><td class="r">MM</td></tr>
+      <tr><td>1975</td><td class="r">MCMLXXV</td><td>2010</td><td class="r">MMX</td></tr>
+      <tr><td>1980</td><td class="r">MCMLXXX</td><td>2015</td><td class="r">MMXV</td></tr>
+      <tr><td>1990</td><td class="r">MCMXC</td><td>2020</td><td class="r">MMXX</td></tr>
+      <tr><td>1999</td><td class="r">MCMXCIX</td><td>2024</td><td class="r">MMXXIV</td></tr>
+      <tr><td>2001</td><td class="r">MMI</td><td>2026</td><td class="r">MMXXVI</td></tr>
+    </table>
+    <p>Two warnings hide in that table. First, 1999 is MCMXCIX, not MIM — the subtraction rules from our <a href="#/guide/roman-numeral-rules">rules guide</a> do not allow I to subtract from M. Second, years in the 1900s are long. MCMLXXXVIII (1988) runs to eleven characters; if your design has limited space, that length is a real design constraint, not a detail to discover at the studio.</p>
+
+    <h2>Full Dates: The Three Formats That Work</h2>
+    <p>For a complete date you convert each part separately and join the three numerals. There are three common orders, and the right choice depends on where you live and how the line will be read:</p>
+    <p><strong>Day · Month · Year</strong> — the order used across most of the world. 14 March 1991 becomes XIV · III · MCMXCI. <strong>Month · Day · Year</strong> — the American order: III · XIV · MCMXCI for the same date. <strong>Year only</strong> — the cleanest and most timeless option, and the easiest to verify: MCMXCI. If the full date feels busy, the year alone often carries the meaning with more elegance.</p>
+    <p>Dividers matter more than people expect. A centred dot (·) or a small diamond is the classic choice; dots and slashes also appear, and hyphens are best avoided — in a numeral string a dash can look like a stray I or an underline. Whatever you choose, keep the spacing generous and even. Roman numerals have no internal spaces: MCMXCI is one word, and inserting spaces inside a single numeral (MC MXCI) makes it harder to read and easier to get wrong.</p>
+
+    <h2>Design Decisions Worth Thinking About</h2>
+    <p><strong>Case.</strong> Tattoos and engravings almost always use capital letters. Lowercase numerals (mcmxci) exist — book page numbers use them — but on skin they read as a stylistic whisper and can blur sooner. <strong>Font.</strong> A classical serif with even stroke widths ages best; very thin hairline fonts can fade unevenly in tattoos, and heavily decorative fonts can turn an M into a W at small sizes. Ask your artist to show the design at final size, not enlarged on a screen. <strong>Length.</strong> Count the characters honestly. A full date with a 1900s year can exceed twenty characters; curving it along a collarbone or wrist changes which parts stretch, so finalise the exact placement before finalising the string.</p>
+
+    <h2>The Checking Routine: Verify Three Ways</h2>
+    <p>A wrong digit in a word can be lasered into a funny story; a wrong numeral usually just stays wrong, because so few people can read it. Before anything permanent, check your date three independent ways. <strong>First</strong>, convert the date with our <a href="#date-tool">date converter</a> and copy the result exactly — do not retype it from memory. <strong>Second</strong>, convert the finished numeral <em>backwards</em>: paste it into the <a href="#tool-roman2num">Roman-to-number converter</a> and confirm it returns your original date; the converter will also flag any rule the numeral breaks. <strong>Third</strong>, proofread the artist's stencil character by character against your printed copy, on the day, before the needle starts. Most numeral errors are born in transcription — a dropped I, an X that became a V — and a two-minute stencil check catches all of them.</p>
+    <p>One more consideration for anniversaries and memorials: agree the date format with everyone involved before the design is final. Families have strong feelings about whether a memorial uses a birth date, a death date, or both with a divider — and about day-first versus month-first ordering when both people reading it live in different conventions. Sorting that out over a printed proof is free; sorting it out afterwards is not.</p>
+
+    <h2>Quick Answers for Year Conversions</h2>
+    <p>The years people ask about most: a 25th (silver) anniversary of a 2001 wedding falls in MMXXVI; the popular birth years 1995, 2000 and 2005 are MCMXCV, MM and MMV; and the current year, 2026, is MMXXVI. For any other year, type it into the <a href="#/">number converter</a> — and if you are teaching a young relative what your tattoo means, our guide to <a href="#/guide/teach-roman-numerals-to-kids">teaching Roman numerals to kids</a> turns it into a game.</p>
+  </article>
+</section>
+
+<!-- ============================ GUIDE 5 ============================ -->
+<section class="route" id="route-guide-kids">
+  <p class="crumb"><a href="#/">Home</a> › <a href="#/guides">Guides</a> › Teaching Kids</p>
+  <article class="guide">
+    <h1>How to Teach Roman Numerals to Kids</h1>
+    <p class="byline">A five-lesson sequence, games that actually hold attention, and the stumbling blocks to watch for.</p>
+
+    <p>Roman numerals are one of the friendliest topics in the whole maths curriculum, because to a child they do not look like maths at all — they look like a code. Secret codes are catnip to eight-year-olds. The trick is to teach the system in the order a codebreaker would learn it: a few symbols, a simple rule, then the one twist, then play. This guide gives you a five-lesson sequence you can run at the kitchen table or in a classroom, the games that make the learning stick, and the exact points where children usually wobble. You can check any example — and let children check their own inventions — with the <a href="#/">converter on our home page</a>.</p>
+
+    <h2>Before You Start: What They Actually Need</h2>
+    <p>A child is ready for Roman numerals when they can count confidently to 100 and understand that 47 means "forty and seven". That second idea — place value — is the only real prerequisite, because Roman numerals are secretly built on it. Age is a rough guide: most children meet the topic between ages 7 and 10, and younger children can still enjoy the first two lessons as a puzzle even if the bigger numbers wait. Keep sessions short (fifteen minutes beats an hour), keep a clock with Roman numerals nearby if you can, and let the child write big — chalk, whiteboard, or sticks in the garden all beat a cramped worksheet.</p>
+
+    <h2>Lesson 1: Three Letters (I, V, X)</h2>
+    <p>Start with just three symbols: I = 1, V = 5, X = 10. Tell the story simply: the Romans counted on their fingers and carved tallies, and these letters are what their counting marks grew into. One finger is I; a whole hand, with fingers spread into a V shape, is 5; two hands crossed make X, 10. Children remember the hand story remarkably well. Then practise pure addition up to 20: II, III, VI (5 and 1), VII, VIII, XI, XV, XVIII. Writing their own age in numerals is the perfect first task — every child wants to know that. Do not mention subtraction yet. Lesson 1 ends when the child can read and write any number up to 20 that does not contain a 4 or a 9.</p>
+
+    <h2>Lesson 2: The Clock Face Hunt</h2>
+    <p>Before teaching another symbol, go hunting. Clocks, watches, book chapter headings, film credits, building cornerstones, the Super Bowl logo in January — set the challenge of finding ten Roman numerals in real life and writing down what each one means. This lesson teaches the most important lesson of all: that this code is <em>real</em> and everywhere, not a school invention. It will also surface the famous puzzle — why the clock says IIII for 4 — which you can either explain with the balance story from our article on <a href="#/guide/why-clocks-use-iiii">why clocks use IIII instead of IV</a>, or park as a mystery to solve in Lesson 4. Children who have hunted numerals arrive at the next lesson asking for more symbols, which is exactly where you want them.</p>
+
+    <h2>Lesson 3: The Big Letters (L, C, D, M)</h2>
+    <p>Now complete the set: L = 50, C = 100, D = 500, M = 1000. The memory hooks: C is for <em>centum</em> and century — a hundred years, a hundred runs in cricket; M is for <em>mille</em> and millennium — a thousand years. L and D have no such tidy English cousins, so anchor them by position: L is "half of C" (its shape is literally the bottom half of an old C-like symbol in some accounts) and D is "half of M's value". Then play shopkeeper with numeral prices: a toy car costs XL (40) Roman pounds, a castle costs D (500). Build numbers by place value — hundreds, then tens, then ones — using the chunking method from our <a href="#/guide/how-to-read-roman-numerals">complete reading guide</a>, simplified: "Say the number in hundreds, tens and ones; write each chunk; stick them together."</p>
+
+    <h2>Lesson 4: The Sneaky Rule (Subtraction)</h2>
+    <p>Present subtraction as the Romans' shortcut, because that is what it is. Write VIIII for 9 and let the child complain it is long — then reveal IX, "one before ten". Do the same with IIII and IV. Children grasp the fairness of the rule instantly when it is framed as laziness rewarded. Then teach the limits as a game of reach: I is small, it can only grab V and X; X can grab L and C; C can grab D and M; nobody can grab further. Invent wrong numerals — IL for 49, IC for 99 — and let the child be the referee who rejects them. Being the rule-enforcer is far more memorable than being the rule-follower. The full adult version of these rules lives in our <a href="#/guide/roman-numeral-rules">rules guide</a> if you want to check the edge cases yourself.</p>
+
+    <h2>Lesson 5: Real Dates and Secret Messages</h2>
+    <p>Finish with the conversions children actually care about: their birth year, the year the family dog arrived, the year of a favourite film. A birth year like 2016 becomes MMXVI, and writing "the year I was born" in code feels like owning a signature. Then flip it around: write a short message entirely in numerals (a page number, a chapter, a score) and let them decode it. Our <a href="#date-tool">date converter</a> makes a satisfying finale — the child picks their birthday and watches it turn into numerals, day, month and year, ready to be copied onto a card for a grandparent.</p>
+
+    <h2>Games That Make It Stick</h2>
+    <p><strong>Numeral snap.</strong> Make pairs of cards — Arabic on one, Roman on the other — and play matching pairs or snap. <strong>Stand up, sit down.</strong> Call out a numeral; children hold up fingers or arrange themselves... simpler: they write the answer on mini-whiteboards and reveal together, so everyone plays every round. <strong>Tally race.</strong> Roll two dice, add the score, write the running total in numerals — first to reach C wins. <strong>Spot the mistake.</strong> Write five numerals on the board, one of them wrong (VV, IIII off a clock, IL); the first detective to find and fix it wins. Mistake-spotting games quietly teach the rules better than any drill, because the child must hold the whole system in mind at once.</p>
+
+    <h2>The Three Stumbling Blocks</h2>
+    <p><strong>Reading IV as 6.</strong> Almost every child adds the I instead of subtracting, once. Fix it by covering the pair and asking "is the little one before or after the big one?" until position-reading becomes automatic. <strong>Writing 4 as IIII.</strong> Blame the clock — they have seen IIII all their lives. Acknowledge the clock is a special old tradition (Lesson 2's mystery, solved) and that in writing we use IV. <strong>Losing place in long numerals.</strong> Teach chunking physically: have them draw a small gap or a dot between the hundreds, tens and ones chunks until their eyes learn to see the joints.</p>
+    <p>Above all, keep the tone of a code club rather than a test. A child who leaves able to read a clock, decode a chapter number and write their birth year in Roman numerals has everything the topic is really for — and a party trick that works on adults for years. When they start inventing numerals to stump <em>you</em>, check the tricky ones in the <a href="#/">converter</a> and let them enjoy the rare pleasure of catching a grown-up out.</p>
+  </article>
+</section>
+
+<!-- ============================ ABOUT ============================ -->
+<section class="route" id="route-about">
+  <p class="crumb"><a href="#/">Home</a> › About</p>
+  <article class="guide">
+    <h1>About RomanNumeralHub</h1>
+    <p>RomanNumeralHub is a small, focused website with one job: to make Roman numerals effortless. It pairs a fast, accurate <a href="#/">converter</a> — numbers to numerals, numerals to numbers, and full dates — with a set of long-form guides that explain the system properly, in plain English, with examples you can verify as you read.</p>
+    <h2>Why this site exists</h2>
+    <p>Roman numerals occupy a strange place in modern life. Almost nobody learns them thoroughly at school, yet they keep turning up: on clocks and watches, in book prefaces and chapter headings, in the numbering of the Super Bowl and the Olympic Games, in film credits, on cornerstones, and — increasingly — in tattoos and anniversary gifts, where a mistake is not easily undone. The information online was scattered between thin converter pages that gave an answer with no explanation, and dense academic articles that explained everything except the one thing you needed. RomanNumeralHub was built to be the page in the middle: instant answers, honest validation, and real teaching for anyone who wants it.</p>
+    <h2>What makes the converter different</h2>
+    <p>Most converters silently accept anything and return a number, even when the numeral you typed breaks the rules of the system — which is how incorrect dates end up engraved on jewellery. Ours validates. If a numeral repeats a symbol too many times, uses a subtraction pair the system does not allow, or is otherwise misspelled, the converter says so and names the rule, following the standards set out in our <a href="#/guide/roman-numeral-rules">rules guide</a>. Every conversion also shows its working — the place-value breakdown — so the tool teaches while it converts.</p>
+    <h2>Our content principles</h2>
+    <p>Everything on this site is written from scratch for RomanNumeralHub. We do not copy text from other websites, and we check every example numeral by hand against the rules before publication. The historical material — such as the story of <a href="#/guide/why-clocks-use-iiii">IIII on clock faces</a> — is presented honestly: where historians are unsure, we say so, and where a popular story is folklore rather than fact, we label it as such. If you spot an error anywhere on the site, we genuinely want to hear about it via the <a href="#/contact">Contact page</a>.</p>
+    <h2>What the site covers</h2>
+    <p>The <a href="#/">home page</a> carries the converters, the date tool and the full 1–100 reference chart. The <a href="#/guides">guides section</a> holds five long articles: a complete reading method, the rules of addition and subtraction, the clock-face mystery, a tattoo and anniversary guide for years, and a teaching guide for parents and teachers. The <a href="#/faq">FAQ</a> collects quick answers — the largest writable number, the missing zero, lowercase numerals and more.</p>
+    <h2>A note on privacy</h2>
+    <p>The converters run entirely in your browser. The numbers and dates you enter are never sent to a server, stored, or shared — there is nothing to store them on. The full details are in our <a href="#/privacy">Privacy Policy</a>, and the terms of use are in our <a href="#/terms">Terms</a>. Thank you for visiting; we hope the site earns a bookmark the next time a clock, a chapter heading or a tattoo design raises a question.</p>
+  </article>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="route" id="route-faq">
+  <p class="crumb"><a href="#/">Home</a> › FAQ</p>
+  <h1>Frequently Asked Questions</h1>
+  <p class="lede">Quick answers to the questions RomanNumeralHub readers ask most. For the full story on any of these, follow the link into the relevant guide.</p>
+
+  <details class="faq"><summary>What is the largest number Roman numerals can write?</summary>
+    <p>3999 — MMMCMXCIX. The classical system has no symbol above M (1000) and no symbol may repeat more than three times, so three thousands plus 999 is the ceiling. Medieval writers later added the vinculum, a line above a numeral that multiplies it by 1000, but that is an extension, not part of the standard system our <a href="#/">converter</a> uses.</p>
+  </details>
+  <details class="faq"><summary>Why is there no Roman numeral for zero?</summary>
+    <p>The Roman system grew out of tally counting, where you only ever count things that exist — there is no tally mark for "none". Roman arithmetic was done on counting boards, so a written zero was never needed. The concept arrived in Europe much later with the Hindu-Arabic numerals, one reason that system eventually replaced Roman numerals for calculation.</p>
+  </details>
+  <details class="faq"><summary>Why do clocks show IIII instead of IV?</summary>
+    <p>Tradition, visual balance against the VIII opposite it on the dial, and old casting habits all play a part; the popular story about a French king is almost certainly folklore. We weigh all the evidence in <a href="#/guide/why-clocks-use-iiii">Why Do Clocks Use IIII Instead of IV?</a> In normal writing, IV is correct.</p>
+  </details>
+  <details class="faq"><summary>What year is MMXXVI?</summary>
+    <p>2026. MM is 2000, XX is 20, and VI is 6. Last year, 2025, was MMXXV, and 2024 was MMXXIV. Our guide to <a href="#/guide/roman-numerals-for-years">Roman numerals for years</a> has a table of common years and advice for tattoos and anniversaries.</p>
+  </details>
+  <details class="faq"><summary>Is 99 written IC or XCIX?</summary>
+    <p>XCIX. The subtraction rule only lets I stand before V and X — it cannot "reach" all the way to C. So 99 is built as 90 (XC) plus 9 (IX). The same logic makes 49 XLIX, never IL. All six legal subtraction pairs are listed in the <a href="#/guide/roman-numeral-rules">rules guide</a>.</p>
+  </details>
+  <details class="faq"><summary>Can Roman numerals be written in lowercase?</summary>
+    <p>Yes, and you will see them that way in the front matter of books, where prefaces and introductions are paginated i, ii, iii, iv… so that page 1 can start the main text. Our converter accepts lowercase input and treats it exactly like uppercase.</p>
+  </details>
+  <details class="faq"><summary>How do I write a date in Roman numerals?</summary>
+    <p>Convert the day, month and year separately and join them with dots or centred dots: 14 March 1991 becomes XIV · III · MCMXCI (day-first) or III · XIV · MCMXCI in the American month-first order. The <a href="#date-tool">date converter</a> on the home page does all three parts at once.</p>
+  </details>
+  <details class="faq"><summary>Why does the Super Bowl use Roman numerals?</summary>
+    <p>The NFL adopted them in 1971, starting with Super Bowl V, to give the game a sense of occasion and history — and, practically, to avoid confusion between the year the season started and the year the game was played. The only break was Super Bowl 50 in 2016, played under a plain "50" before numerals returned the next year.</p>
+  </details>
+  <details class="faq"><summary>What does the converter do if I type an invalid numeral?</summary>
+    <p>It explains the problem instead of guessing: which characters are not Roman symbols, which symbol repeats too many times, or which subtraction pair is not allowed — with the correct form offered where there is an obvious one. Try IIII, VV or IL to see it work.</p>
+  </details>
+  <details class="faq"><summary>How can I teach my child Roman numerals?</summary>
+    <p>Start with I, V and X and the story of fingers and hands, hunt for numerals on clocks and in books, then add the big symbols and the subtraction shortcut as a game. Our step-by-step guide, <a href="#/guide/teach-roman-numerals-to-kids">How to Teach Roman Numerals to Kids</a>, lays out five short lessons with games for each stage.</p>
+  </details>
+  <p style="margin-top:22px;">Still stuck? Ask us directly through the <a href="#/contact">Contact page</a>.</p>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="route" id="route-contact">
+  <p class="crumb"><a href="#/">Home</a> › Contact</p>
+  <article class="guide">
+    <h1>Contact RomanNumeralHub</h1>
+    <p>Found an error in a guide, hit a numeral our converter handles badly, or have a suggestion for a new article? We read everything and fix genuine mistakes quickly — accuracy is the whole point of this site.</p>
+    <p>The fastest way to reach us is email:</p>
+    <p style="font-size:1.15rem;"><a href="mailto:contact@romannumeralhub.github.io">contact@romannumeralhub.github.io</a></p>
+    <p>Or use the form below — it opens your own email app with the message addressed and ready, so nothing is sent through this website and no copy is kept here.</p>
+    <form id="contact-form" style="max-width:560px; margin-top:18px;">
+      <label class="flabel" for="cf-name">Your name</label>
+      <input type="text" id="cf-name" autocomplete="name" style="margin-bottom:14px;" />
+      <label class="flabel" for="cf-subject">Subject</label>
+      <input type="text" id="cf-subject" style="margin-bottom:14px;" />
+      <label class="flabel" for="cf-msg">Message</label>
+      <textarea id="cf-msg" rows="6" style="margin-bottom:14px;"></textarea>
+      <button class="btn" type="submit">Open in my email app</button>
+      <p class="small" style="margin-top:10px;">Before writing, it is worth a quick look at the <a href="#/faq">FAQ</a> — the most common questions, from the missing zero to the clock-face IIII, are answered there.</p>
+    </form>
+  </article>
+</section>
+
+<!-- ============================ PRIVACY ============================ -->
+<section class="route" id="route-privacy">
+  <p class="crumb"><a href="#/">Home</a> › Privacy Policy</p>
+  <article class="guide">
+    <h1>Privacy Policy</h1>
+    <p class="byline">Last updated: 22 November 2026</p>
+    <p>RomanNumeralHub is a static reference and conversion website. This policy explains, in plain language, what information is and is not collected when you use it.</p>
+    <h2>The converters collect nothing</h2>
+    <p>All conversion tools on this site — the number converter, the numeral validator, the date converter and the reference chart — run entirely in your web browser using JavaScript. The numbers, numerals and dates you enter are processed on your own device. They are never transmitted to us, never stored in a database, and never written to any log. When you close the page, nothing about your conversions remains anywhere.</p>
+    <h2>No accounts, no tracking cookies set by us</h2>
+    <p>RomanNumeralHub has no user accounts, no sign-up forms and no comment system, and the site itself sets no cookies for tracking or advertising. The contact form does not submit data to a server: it opens your own email application with a pre-addressed message, and anything you then send is governed by your email provider's policies and ours as the recipient.</p>
+    <h2>Email you send us</h2>
+    <p>If you contact us by email, we receive your email address and the contents of your message. We use these only to read and reply to your enquiry and to correct any site errors you report. We do not sell, rent or share email addresses or message contents with third parties for marketing.</p>
+    <h2>Hosting and server logs</h2>
+    <p>Like almost every website, the hosting platform that serves these pages may keep standard technical server logs (such as IP addresses, browser type and pages requested) for security and operational purposes. These logs are controlled by the hosting provider under its own privacy policy; we do not combine them with any other information, because we hold no other information to combine them with.</p>
+    <h2>Third-party links</h2>
+    <p>Pages on this site may link to external websites. We are not responsible for the privacy practices of sites we do not operate, and we encourage you to read their policies.</p>
+    <h2>Children's privacy</h2>
+    <p>The site is suitable for general audiences, including children learning Roman numerals, and it collects no personal information from any visitor, of any age.</p>
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, the updated version will be published on this page with a new "last updated" date. Questions about privacy can be sent through the <a href="#/contact">Contact page</a>.</p>
+  </article>
+</section>
+
+<!-- ============================ TERMS ============================ -->
+<section class="route" id="route-terms">
+  <p class="crumb"><a href="#/">Home</a> › Terms of Use</p>
+  <article class="guide">
+    <h1>Terms of Use</h1>
+    <p class="byline">Last updated: 22 November 2026</p>
+    <p>By using RomanNumeralHub, you agree to the following terms. If you do not agree with any part of them, please do not use the site.</p>
+    <h2>Purpose of the site</h2>
+    <p>RomanNumeralHub provides Roman numeral conversion tools, a reference chart and educational guides for personal, educational and general reference use. The tools follow the standard classical rules for the range 1 to 3999, as described in our <a href="#/guide/roman-numeral-rules">rules guide</a>.</p>
+    <h2>Accuracy</h2>
+    <p>We take care to ensure that every conversion and every example on this site is correct, and we correct reported errors promptly. However, all content is provided "as is" without warranties of any kind. Roman numerals are sometimes used in contexts with their own conventions — clock faces being the famous example — and historical inscriptions may follow older or local practices that differ from the standard rules used here.</p>
+    <h2>Important: permanent uses</h2>
+    <p>If you intend to use a conversion in a permanent or costly context — including tattoos, engraving, printing, signage or legal documents — you are responsible for verifying the result independently before committing to it. We recommend the three-way check described in our <a href="#/guide/roman-numerals-for-years">tattoo and anniversary guide</a>. RomanNumeralHub accepts no liability for errors in third-party work produced from conversions obtained here.</p>
+    <h2>Intellectual property</h2>
+    <p>The text, guides and design of this site are the property of RomanNumeralHub and are protected by copyright. You may quote short excerpts with a link back to the relevant page. Republishing whole articles or substantial portions without written permission is not allowed. The Roman numeral system itself, of course, belongs to everyone — it is roughly two thousand years old and firmly in the public domain.</p>
+    <h2>Acceptable use</h2>
+    <p>You agree not to use this site in any way that breaks applicable law, interferes with the site's operation, or misrepresents the site's content as your own work. Automated scraping that places unreasonable load on the hosting service is prohibited.</p>
+    <h2>External links</h2>
+    <p>Links to external websites are provided for convenience. We do not control those sites and are not responsible for their content, accuracy or availability.</p>
+    <h2>Changes</h2>
+    <p>We may update these terms from time to time; the current version will always be the one published on this page, with its date shown at the top. Questions about these terms can be sent via the <a href="#/contact">Contact page</a>.</p>
+  </article>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>RomanNumeralHub</h3>
+        <p class="small" style="max-width:44ch;">A free Roman numeral converter and learning resource: convert numbers, numerals and dates, check the 1–100 chart, and read the system explained in plain English.</p>
+      </div>
+      <div>
+        <h3>Guides</h3>
+        <ul>
+          <li><a href="#/guide/how-to-read-roman-numerals">How to Read Roman Numerals</a></li>
+          <li><a href="#/guide/roman-numeral-rules">Addition &amp; Subtraction Rules</a></li>
+          <li><a href="#/guide/why-clocks-use-iiii">Why Clocks Use IIII</a></li>
+          <li><a href="#/guide/roman-numerals-for-years">Years, Tattoos &amp; Anniversaries</a></li>
+          <li><a href="#/guide/teach-roman-numerals-to-kids">Teaching Kids</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="#/">Converter &amp; Chart</a></li>
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/faq">FAQ</a></li>
+          <li><a href="#/contact">Contact</a></li>
+          <li><a href="#/privacy">Privacy Policy</a></li>
+          <li><a href="#/terms">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-note">
+      <span>© 2026 RomanNumeralHub. All text on this site is original.</span>
+      <span>I · V · X · L · C · D · M</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var TABLE = [[1000,"M"],[900,"CM"],[500,"D"],[400,"CD"],[100,"C"],[90,"XC"],[50,"L"],[40,"XL"],[10,"X"],[9,"IX"],[5,"V"],[4,"IV"],[1,"I"]];
+  var VALUES = {I:1, V:5, X:10, L:50, C:100, D:500, M:1000};
+  var SUB_PAIRS = {IV:4, IX:9, XL:40, XC:90, CD:400, CM:900};
+
+  function toRoman(n){
+    var out = "";
+    for (var i = 0; i < TABLE.length; i++){
+      while (n >= TABLE[i][0]){ out += TABLE[i][1]; n -= TABLE[i][0]; }
+    }
+    return out;
+  }
+  function breakdownNumber(n){
+    var parts = [];
+    var places = [[1000,"thousands"],[100,"hundreds"],[10,"tens"],[1,"ones"]];
+    for (var i = 0; i < places.length; i++){
+      var p = places[i][0];
+      var chunk = Math.floor(n / p) * p;
+      if (chunk > 0){ parts.push(chunk + " = " + toRoman(chunk)); n -= chunk; }
+    }
+    return parts.join(" · ");
+  }
+  /* Validate a Roman numeral; returns {ok:true, value:n, parts:[...]} or {ok:false, error:"..."} */
+  function parseRoman(raw){
+    var s = raw.replace(/\s+/g, "").toUpperCase();
+    if (!s) return {ok:false, error:"Please enter a Roman numeral first — for example XIV or MCMXCIV."};
+    var bad = [];
+    for (var i = 0; i < s.length; i++){
+      if (!VALUES.hasOwnProperty(s[i]) && bad.indexOf(s[i]) === -1) bad.push(s[i]);
+    }
+    if (bad.length){
+      return {ok:false, error:"\u201C" + bad.join(", ") + "\u201D " + (bad.length > 1 ? "are not Roman numeral symbols" : "is not a Roman numeral symbol") + ". The only symbols are I, V, X, L, C, D and M. Check for typos — a common one is using the letter O or a zero, which Roman numerals do not have."};
+    }
+    /* repetition checks */
+    var runs = s.match(/(.)\1+/g) || [];
+    for (var r = 0; r < runs.length; r++){
+      var sym = runs[r][0], len = runs[r].length;
+      if ((sym === "V" || sym === "L" || sym === "D") && len >= 2){
+        var single = {V:"X for 10", L:"C for 100", D:"M for 1000"}[sym];
+        return {ok:false, error:"The symbol " + sym + " can never be repeated — V, L and D each appear at most once in a numeral. (If you were aiming for double its value, use " + single + " instead.)"};
+      }
+      if (len >= 4){
+        var val = VALUES[sym] * 4;
+        return {ok:false, error:sym + " repeats " + len + " times in a row, but no symbol may repeat more than three times. " + (val <= 3999 ? "The value " + val + " is written " + toRoman(val) + "." : "") + (sym === "I" ? " (Clock faces are the one famous exception — they traditionally use IIII for 4.)" : "")};
+      }
+    }
+    ["V","L","D"].forEach(function(sym){
+      var count = s.split(sym).length - 1;
+      if (count > 1){
+        return;
+      }
+    });
+    /* V/L/D appearing more than once anywhere */
+    for (var k = 0; k < 3; k++){
+      var sy = ["V","L","D"][k];
+      if (s.split(sy).length - 1 > 1){
+        return {ok:false, error:"The symbol " + sy + " appears more than once. V, L and D may each appear only once in a numeral."};
+      }
+    }
+    /* subtractive pair checks: smaller before larger */
+    for (var j = 0; j < s.length - 1; j++){
+      var a = s[j], b = s[j+1];
+      if (VALUES[a] < VALUES[b]){
+        var pair = a + b;
+        if (!SUB_PAIRS.hasOwnProperty(pair)){
+          var why;
+          if (a === "V" || a === "L" || a === "D"){
+            why = a + " can never be subtracted — only I, X and C are allowed to stand before a larger symbol.";
+          } else {
+            why = a + " may only be subtracted from the next two values above it (" + (a === "I" ? "V and X" : a === "X" ? "L and C" : "D and M") + "), not from " + b + ".";
+          }
+          var intended = VALUES[b] - VALUES[a];
+          return {ok:false, error:"The pair \u201C" + pair + "\u201D is not allowed. " + why + (intended >= 1 && intended <= 3999 ? " If you meant " + intended + ", the correct numeral is " + toRoman(intended) + "." : "")};
+        }
+      }
+    }
+    /* full structural validation */
+    var re = /^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/;
+    if (!re.test(s)){
+      /* compute the value leniently to offer the correct spelling */
+      var lv = lenientValue(s);
+      return {ok:false, error:"\u201C" + s + "\u201D is not written in the standard form — the symbols are out of order or a group is malformed." + (lv >= 1 && lv <= 3999 ? " Written correctly, that value is " + toRoman(lv) + " (" + lv + ")." : "") + " Numerals run largest-first: thousands, then hundreds, then tens, then ones."};
+    }
+    /* valid: compute value with a readable breakdown */
+    var total = 0, parts = [], idx = 0;
+    while (idx < s.length){
+      var two = s.substr(idx, 2);
+      if (SUB_PAIRS.hasOwnProperty(two) && idx + 1 < s.length){
+        parts.push(two + " = " + SUB_PAIRS[two]); total += SUB_PAIRS[two]; idx += 2;
+      } else {
+        parts.push(s[idx] + " = " + VALUES[s[idx]]); total += VALUES[s[idx]]; idx += 1;
+      }
+    }
+    return {ok:true, value: total, parts: parts};
+  }
+  function lenientValue(s){
+    var total = 0;
+    for (var i = 0; i < s.length; i++){
+      var v = VALUES[s[i]];
+      if (i + 1 < s.length && VALUES[s[i+1]] > v) total -= v; else total += v;
+    }
+    return total;
+  }
+
+  function $(id){ return document.getElementById(id); }
+  function showMsg(el, text){ el.textContent = text; el.classList.add("show"); }
+  function hideMsg(el){ el.textContent = ""; el.classList.remove("show"); }
+  function copyText(text, btn){
+    function done(){ var old = btn.textContent; btn.textContent = "Copied!"; setTimeout(function(){ btn.textContent = old; }, 1600); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); } catch(e){}
+      document.body.removeChild(ta); done();
+    }
+  }
+
+  /* ---- Number -> Roman ---- */
+  var lastRoman = "";
+  function convertNum(){
+    var raw = $("in-number").value.trim();
+    var msg = $("msg-num"), res = $("res-num");
+    hideMsg(msg); res.classList.remove("show");
+    if (raw === ""){ showMsg(msg, "Please enter a number between 1 and 3999."); return; }
+    var n = Number(raw);
+    if (!isFinite(n) || Math.floor(n) !== n){ showMsg(msg, "Please enter a whole number — Roman numerals have no fractions or decimals."); return; }
+    if (n < 1){ showMsg(msg, "Roman numerals start at 1. The system has no zero and no negative numbers, so " + n + " cannot be written."); return; }
+    if (n > 3999){ showMsg(msg, n + " is too large for standard Roman numerals, which end at 3999 (MMMCMXCIX). Larger values need the medieval vinculum (an overline), which this converter does not use."); return; }
+    lastRoman = toRoman(n);
+    $("res-num-val").textContent = lastRoman;
+    $("res-num-break").textContent = "How it is built: " + breakdownNumber(n) + "  →  " + n + " = " + lastRoman;
+    res.classList.add("show");
+  }
+  $("btn-num2roman").addEventListener("click", convertNum);
+  $("in-number").addEventListener("keydown", function(e){ if (e.key === "Enter") convertNum(); });
+  $("in-number").addEventListener("input", function(){ if ($("in-number").value.trim() !== "") convertNum(); });
+  $("btn-num-clear").addEventListener("click", function(){ $("in-number").value = ""; hideMsg($("msg-num")); $("res-num").classList.remove("show"); $("in-number").focus(); });
+  $("copy-num").addEventListener("click", function(){ if (lastRoman) copyText(lastRoman, this); });
+
+  /* ---- Roman -> Number ---- */
+  var lastNumber = "";
+  function convertRoman(){
+    var raw = $("in-roman").value;
+    var msg = $("msg-roman"), res = $("res-roman");
+    hideMsg(msg); res.classList.remove("show");
+    var parsed = parseRoman(raw);
+    if (!parsed.ok){ showMsg(msg, parsed.error); return; }
+    lastNumber = String(parsed.value);
+    $("res-roman-val").textContent = parsed.value;
+    $("res-roman-break").textContent = "How it adds up: " + parsed.parts.join("  +  ") + "  =  " + parsed.value;
+    res.classList.add("show");
+  }
+  $("btn-roman2num").addEventListener("click", convertRoman);
+  $("in-roman").addEventListener("keydown", function(e){ if (e.key === "Enter") convertRoman(); });
+  $("btn-roman-clear").addEventListener("click", function(){ $("in-roman").value = ""; hideMsg($("msg-roman")); $("res-roman").classList.remove("show"); $("in-roman").focus(); });
+  $("copy-roman").addEventListener("click", function(){ if (lastNumber) copyText(lastNumber, this); });
+
+  /* ---- Date tool ---- */
+  var lastDate = "";
+  function convertDate(){
+    var v = $("in-date").value;
+    var msg = $("msg-date"), out = $("res-date");
+    hideMsg(msg); out.classList.remove("show");
+    if (!v){ showMsg(msg, "Please pick a date first."); return; }
+    var bits = v.split("-");
+    var y = parseInt(bits[0], 10), m = parseInt(bits[1], 10), d = parseInt(bits[2], 10);
+    if (y > 3999){ showMsg(msg, "The year " + y + " is beyond 3999, the largest year standard Roman numerals can write."); return; }
+    var rd = toRoman(d), rm = toRoman(m), ry = toRoman(y);
+    $("d-day").textContent = rd; $("d-month").textContent = rm; $("d-year").textContent = ry;
+    lastDate = rd + " · " + rm + " · " + ry;
+    $("d-full").textContent = "Full date: " + lastDate + "   (day · month · year)";
+    out.classList.add("show");
+  }
+  $("btn-date").addEventListener("click", convertDate);
+  $("in-date").addEventListener("change", convertDate);
+  $("btn-date-today").addEventListener("click", function(){
+    var t = new Date();
+    function pad(x){ return (x < 10 ? "0" : "") + x; }
+    $("in-date").value = t.getFullYear() + "-" + pad(t.getMonth() + 1) + "-" + pad(t.getDate());
+    convertDate();
+  });
+  $("copy-date").addEventListener("click", function(){ if (lastDate) copyText(lastDate, this); });
+
+  /* ---- Chart ---- */
+  var KEY = {1:1,5:1,10:1,20:1,30:1,40:1,50:1,60:1,70:1,80:1,90:1,100:1};
+  function renderChart(limit){
+    var grid = $("chart-grid"), html = "";
+    for (var i = 1; i <= limit; i++){
+      html += '<div class="chart-cell' + (KEY[i] ? " key" : "") + '"><span class="n">' + i + '</span><span class="r">' + toRoman(i) + '</span></div>';
+    }
+    grid.innerHTML = html;
+    var btns = document.querySelectorAll("[data-range]");
+    for (var b = 0; b < btns.length; b++){
+      btns[b].setAttribute("aria-pressed", btns[b].getAttribute("data-range") === String(limit) ? "true" : "false");
+    }
+  }
+  var rangeBtns = document.querySelectorAll("[data-range]");
+  for (var b = 0; b < rangeBtns.length; b++){
+    rangeBtns[b].addEventListener("click", function(){ renderChart(parseInt(this.getAttribute("data-range"), 10)); });
+  }
+  renderChart(100);
+
+  /* key values */
+  var KV = [[100,"C"],[200,"CC"],[300,"CCC"],[400,"CD"],[500,"D"],[600,"DC"],[700,"DCC"],[800,"DCCC"],[900,"CM"],[1000,"M"],[1500,"MD"],[1900,"MCM"],[1994,"MCMXCIV"],[1999,"MCMXCIX"],[2000,"MM"],[2024,"MMXXIV"],[2025,"MMXXV"],[2026,"MMXXVI"],[3000,"MMM"],[3999,"MMMCMXCIX"]];
+  var kvHtml = "";
+  KV.forEach(function(pair){ kvHtml += '<div><span>' + pair[0] + '</span><span class="r">' + pair[1] + '</span></div>'; });
+  $("keyvals").innerHTML = kvHtml;
+
+  /* ---- Contact form (mailto) ---- */
+  var cf = $("contact-form");
+  if (cf){
+    cf.addEventListener("submit", function(e){
+      e.preventDefault();
+      var name = $("cf-name").value.trim(), subj = $("cf-subject").value.trim(), body = $("cf-msg").value.trim();
+      var subject = encodeURIComponent(subj || "RomanNumeralHub enquiry");
+      var text = encodeURIComponent((body || "") + (name ? "\n\n— " + name : ""));
+      var a = document.createElement("a");
+      a.href = "mailto:contact@romannumeralhub.github.io?subject=" + subject + "&body=" + text;
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+  }
+
+  /* ---- Hash routing ---- */
+  var ROUTES = {
+    "": "route-home", "/": "route-home",
+    "/guides": "route-guides",
+    "/guide/how-to-read-roman-numerals": "route-guide-read",
+    "/guide/roman-numeral-rules": "route-guide-rules",
+    "/guide/why-clocks-use-iiii": "route-guide-clocks",
+    "/guide/roman-numerals-for-years": "route-guide-years",
+    "/guide/teach-roman-numerals-to-kids": "route-guide-kids",
+    "/about": "route-about",
+    "/faq": "route-faq",
+    "/contact": "route-contact",
+    "/privacy": "route-privacy",
+    "/terms": "route-terms"
+  };
+  var TITLES = {
+    "route-home": "Roman Numeral Converter — RomanNumeralHub",
+    "route-guides": "Roman Numeral Guides — RomanNumeralHub",
+    "route-guide-read": "How to Read Roman Numerals: The Complete Guide — RomanNumeralHub",
+    "route-guide-rules": "Roman Numeral Rules: Addition and Subtraction Explained — RomanNumeralHub",
+    "route-guide-clocks": "Why Do Clocks Use IIII Instead of IV? — RomanNumeralHub",
+    "route-guide-years": "Roman Numerals for Years: Tattoo and Anniversary Guide — RomanNumeralHub",
+    "route-guide-kids": "How to Teach Roman Numerals to Kids — RomanNumeralHub",
+    "route-about": "About — RomanNumeralHub",
+    "route-faq": "FAQ — RomanNumeralHub",
+    "route-contact": "Contact — RomanNumeralHub",
+    "route-privacy": "Privacy Policy — RomanNumeralHub",
+    "route-terms": "Terms of Use — RomanNumeralHub"
+  };
+  var NAVMAP = {
+    "route-home": "home", "route-guides": "guides",
+    "route-guide-read": "guides", "route-guide-rules": "guides",
+    "route-guide-clocks": "guides", "route-guide-years": "guides",
+    "route-guide-kids": "guides",
+    "route-about": "about", "route-faq": "faq", "route-contact": "contact"
+  };
+  function applyRoute(){
+    var hash = window.location.hash.replace(/^#/, "");
+    var anchor = null;
+    if (hash === "/date-tool" || hash === "date-tool"){ anchor = "date-tool"; hash = "/"; }
+    if (hash === "/tool-roman2num" || hash === "tool-roman2num"){ anchor = "tool-roman2num"; hash = "/"; }
+    if (hash === "/tool-num2roman" || hash === "tool-num2roman"){ anchor = "tool-num2roman"; hash = "/"; }
+    var id = ROUTES.hasOwnProperty(hash) ? ROUTES[hash] : "route-home";
+    var sections = document.querySelectorAll(".route");
+    for (var i = 0; i < sections.length; i++){ sections[i].classList.toggle("active", sections[i].id === id); }
+    document.title = TITLES[id] || TITLES["route-home"];
+    var navs = document.querySelectorAll("[data-nav]");
+    for (var j = 0; j < navs.length; j++){
+      if (navs[j].getAttribute("data-nav") === NAVMAP[id]) navs[j].setAttribute("aria-current", "page");
+      else navs[j].removeAttribute("aria-current");
+    }
+    if (anchor){
+      var target = document.getElementById(anchor);
+      if (target){ setTimeout(function(){ target.scrollIntoView({behavior:"smooth", block:"start"}); }, 30); return; }
+    }
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", applyRoute);
+  applyRoute();
+})();
+</script>
+</body>
+</html>
